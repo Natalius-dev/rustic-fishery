@@ -1,0 +1,144 @@
+body {
+    background-image: url('https://2.bp.blogspot.com/-3J8MukWVApM/XLAcyuflY4I/AAAAAAABSTA/3IxtQnJKJH48h42rvdg2tGrQEvsc4QxrQCLcBGAs/s800/bg_ocean_suiheisen.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+.mask {
+    width:19em;
+    height:19em;
+    position:relative;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: auto;
+    background-image: url('https://1.bp.blogspot.com/-gq_tAX03Btk/VpjBpezB-kI/AAAAAAAA25Y/s__gB-bb2lc/s1600/bg_natural_ocean.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    display: flex;
+    justify-content: center;
+    border: black solid 3px;
+}
+.mask img {
+    position:absolute;
+    height:100%;
+    width:auto;
+}
+button {
+    text-align: center;
+    font-family: 'Courier';
+    padding: 1em;
+}
+h2 {
+    font-family: 'Helvetica';
+    padding: 1em;
+    text-align: center;
+}
+.stats {
+    border-style: hidden double double double;
+    border-color: black;
+    background-color: lightgray;
+}
+.stats-content {
+    border-style: hidden double double double;
+    border-color: black;
+    transform: scaleY(0) translateY(50%);
+    transition-duration: 300ms;
+}
+.show-content
+{
+    transform: scaleY(100%) translateY(50%);
+}
+.stats h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-style: hidden hidden hidden hidden;
+    border-color: black;
+}
+.stats-content span {
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+}
+.stats-content span p {
+    display: inline-block;
+}
+p {
+    text-align: center;
+    font-family: 'Segoe UI';
+}
+.catch-bar {
+    width: 40%;
+    margin: auto;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.catch-bar .red {
+    background-color: rgb(255, 80, 17);
+    width: 100%;
+    height: 2em;
+    display: inline-block;
+    border: black solid 2px;
+    position: absolute;
+}
+.catch-bar .orange {
+    background-color: orange;
+    width: 50%;
+    height: 2em;
+    display: inline-block;
+    position: absolute;
+}
+.catch-bar .yellow {
+    background-color: rgb(255, 223, 44);
+    width: 16.667%;
+    height: 2em;
+    display: inline-block;
+    position: absolute;
+}
+.catch-bar .green {
+    background-color: rgb(255, 253, 148);
+    width: 4%;
+    height: 2em;
+    display: inline-block;
+    position: absolute;
+}
+@keyframes moveMarker {
+    0% {left: 0.25%;}
+    100% {left: 99.75%;}
+}
+.catch-bar .marker {
+    background-color: black;
+    width: 0.75%;
+    height: 2em;
+    left: 5%;
+    position: absolute;
+    animation-name: moveMarker;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+@keyframes reveal {
+    0% {transform: translateY(15%);}
+    100% {transform: translateY(100%);}
+}
+.reveal {
+    animation-name: reveal;
+    animation-duration: 750ms;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+.anim-play {
+    animation-play-state: running;
+}
+.anim-pause {
+    animation-play-state: paused;
+}

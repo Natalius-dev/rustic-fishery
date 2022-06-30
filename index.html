@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+</style>
+<head>
+    <link href="style.css" rel="stylesheet">
+</head>
+    <body>
+        <h2 id="fish_text">Time to fish!</h2>
+
+        <div class="stats" style="position: absolute; top: -1em; left: 2em; min-width: 15%; max-width: 25%; height: 5.5em;">
+            <a onclick="toggleStats()"><h2 style="cursor: pointer;">Stats</h2></a>
+        </div>
+        <div class="stats stats-content" id="stats-content" style="position: absolute; top: -3.38em; left: 2em; min-width: 15%; max-width: 25%;">
+            <span><p>Size:&nbsp</p><p>10</p></span>
+            <span><p>Rarity:&nbsp</p><p>100</p></span>
+            <span><p>Rarity:&nbsp</p><p>100</p></span>
+            <span><p>Rarity:&nbsp</p><p>100</p></span>
+        </div>
+
+        <div class="mask">
+            <img src="pattern_uroko.png" style="height: 20em; z-index: 1; transform: scale(100%) translateY(15%);" class="reveal" id="reveal">
+            <img src="https://4.bp.blogspot.com/-FzwqaE4aVU0/WxvJ-j6LE2I/AAAAAAABMl4/Ak3Rtb2CsGQxYUVh-SCv9Aw_-J_eTnorwCLcBGAs/s800/fishing_tsurizao_nobezao.png" alt="fish" id="fish_dom" style="transform: scale(70%); filter: drop-shadow(0.5em 0.5em 0px black); z-index: 2;">
+        </div>
+
+        <div id="catch-bar" class="catch-bar">
+            <span id="red" class="red"></span>
+            <span id="orange" class="orange"></span>
+            <span id="yellow" class="yellow"></span>
+            <span id="green" class="green"></span>
+
+            <span id="marker" class="marker"></span>
+        </div>
+
+        <div style="margin: auto; text-align: center;"><button onclick="catchFish()">Catch fish!</button></div>
+
+        <script type="text/javascript" src="main.js"></script>
+        <noscript>Sorry, your browser does not support JavaScript!</noscript>
+    </body>
+</html>
