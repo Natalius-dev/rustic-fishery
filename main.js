@@ -57,12 +57,31 @@ const green_bar = 4;
 const yellow_bar = 16.667;
 const orange_bar = 50;
 
+const vowel = new RegExp("([aiueo])");
+
+function getFish(fish_color)
+{
+    var size = randomInterval(35,60);
+    var rot = randomInterval(-30,30);
+
+    let fish = parseInt(randomInterval(0,Object.keys(fish_color).length-1));
+    fish_dom.setAttribute("alt", "Illustration of " + Object.keys(fish_color)[fish]);
+    fish_dom.setAttribute("src", Object.values(fish_color)[fish]);
+    fish_dom.style.zIndex = "0";
+    fish_dom.style.transform = "scale("+size+"%) rotate("+rot+"deg)";
+    
+    if(vowel.test((Object.keys(fish_color)[fish][0])))
+    {
+        fish_text.innerHTML = "You found an " + Object.keys(fish_color)[fish] + "!";
+    }
+    else {
+        fish_text.innerHTML = "You found a " + Object.keys(fish_color)[fish] + "!";
+    }
+}
+
 function catchFish()
 {
     var marker_x = 0;
-
-    var size = randomInterval(35,60);
-    var rot = randomInterval(-30,30);
 
     reveal.classList.toggle("anim-play");
     setTimeout(function(){
@@ -75,39 +94,19 @@ function catchFish()
         var marker_x = lerp(parseFloat(getComputedStyle(marker).getPropertyValue('left').slice(0,-2)), parseFloat(getComputedStyle(document.getElementById("red")).getPropertyValue('width').slice(0,-2))*(0.25/100), parseFloat(getComputedStyle(document.getElementById("red")).getPropertyValue('width').slice(0,-2))*(99.75/100), 0, 100);
         if(marker_x > (50-(green_bar/2)) && marker_x < (50+(green_bar/2)) && marker.classList.contains("anim-pause"))
         {
-            let fish = parseInt(randomInterval(0,Object.keys(fish_green).length-1));
-            fish_dom.setAttribute("alt", "Illustration of " + Object.keys(fish_green)[fish]);
-            fish_dom.setAttribute("src", Object.values(fish_green)[fish]);
-            fish_dom.style.zIndex = "0";
-            fish_dom.style.transform = "scale("+size+"%) rotate("+rot+"deg)";
-            fish_text.innerHTML = "You found a " + Object.keys(fish_green)[fish] + "!";
+            getFish(fish_green);
         }
         else if(marker_x > (50-(yellow_bar/2)) && marker_x < (50+(yellow_bar/2)) && marker.classList.contains("anim-pause"))
         {
-            let fish = parseInt(randomInterval(0,Object.keys(fish_yellow).length-1));
-            fish_dom.setAttribute("alt", "Illustration of " + Object.keys(fish_yellow)[fish]);
-            fish_dom.setAttribute("src", Object.values(fish_yellow)[fish]);
-            fish_dom.style.zIndex = "0";
-            fish_dom.style.transform = "scale("+size+"%) rotate("+rot+"deg)";
-            fish_text.innerHTML = "You found a " + Object.keys(fish_yellow)[fish] + "!";
+            getFish(fish_yellow);
         }
         else if(marker_x > (50-(orange_bar/2)) && marker_x < (50+(orange_bar/2)) && marker.classList.contains("anim-pause"))
         {
-            let fish = parseInt(randomInterval(0,Object.keys(fish_orange).length-1));
-            fish_dom.setAttribute("alt", "Illustration of " + Object.keys(fish_orange)[fish]);
-            fish_dom.setAttribute("src", Object.values(fish_orange)[fish]);
-            fish_dom.style.zIndex = "0";
-            fish_dom.style.transform = "scale("+size+"%) rotate("+rot+"deg)";
-            fish_text.innerHTML = "You found a " + Object.keys(fish_orange)[fish] + "!";
+            getFish(fish_orange);
         }
         else if(marker.classList.contains("anim-pause"))
         {
-            let fish = parseInt(randomInterval(0,Object.keys(fish_red).length-1));
-            fish_dom.setAttribute("alt", "Illustration of " + Object.keys(fish_red)[fish]);
-            fish_dom.setAttribute("src", Object.values(fish_red)[fish]);
-            fish_dom.style.zIndex = "0";
-            fish_dom.style.transform = "scale("+size+"%) rotate("+rot+"deg)";
-            fish_text.innerHTML = "You found a " + Object.keys(fish_red)[fish] + "!";
+            getFish(fish_red);
         }
     }, 50);
 }
