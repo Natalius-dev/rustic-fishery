@@ -127,6 +127,7 @@ p {
 }
 @keyframes reveal {
     0% {transform: translateY(15%);}
+    20% {transform: translateY(5%);}
     100% {transform: translateY(100%);}
 }
 .reveal {
