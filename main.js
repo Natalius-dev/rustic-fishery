@@ -61,11 +61,10 @@ const vowel = new RegExp("([aiueo])");
 
 function getFish(fish_color)
 {
-    var size = randomInterval(35,60);
+    var size = randomInterval(35,52.5);
     var rot = randomInterval(-30,30);
-
     let fish = parseInt(randomInterval(0,Object.keys(fish_color).length-1));
-    fish_dom.setAttribute("alt", "Illustration of " + Object.keys(fish_color)[fish]);
+    
     fish_dom.setAttribute("src", Object.values(fish_color)[fish]);
     fish_dom.style.zIndex = "0";
     fish_dom.style.transform = "scale("+size+"%) rotate("+rot+"deg)";
@@ -73,9 +72,11 @@ function getFish(fish_color)
     if(vowel.test((Object.keys(fish_color)[fish][0])))
     {
         fish_text.innerHTML = "You found an " + Object.keys(fish_color)[fish] + "!";
+        fish_dom.setAttribute("alt", "Illustration of an " + Object.keys(fish_color)[fish]);
     }
     else {
         fish_text.innerHTML = "You found a " + Object.keys(fish_color)[fish] + "!";
+        fish_dom.setAttribute("alt", "Illustration of a " + Object.keys(fish_color)[fish]);
     }
 }
 
@@ -115,11 +116,6 @@ function getTranslateY(element) {
     const style = window.getComputedStyle(element)
     const matrix = new DOMMatrixReadOnly(style.transform)
     return matrix.m42
-}
-
-function toggleStats()
-{
-    document.getElementById("stats-content").classList.toggle("show-content");
 }
 
 function randomInterval(min, max) { // min and max included 
