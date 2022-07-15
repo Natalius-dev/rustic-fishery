@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
+    background-attachment: fixed;
 }
 .mask {
     width:19em;
@@ -80,6 +81,18 @@ p {
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 800px) {
+    .catch-bar {
+        width: 80%;
+        margin: auto;
+        padding-top: 3em;
+        padding-bottom: 3em;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
 .catch-bar .red {
     background-color: rgb(255, 80, 17);
     width: 100%;
