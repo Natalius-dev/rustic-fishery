@@ -3,10 +3,6 @@ function lerp(x, minX, maxX, minY, maxY)
     return (x-minX) * (maxY-minY)/(maxX-minX) + minY;
 }
 
-tempImg = new Image()
-tempImg.src="pattern_uroko.png"
-var tempImg = []
-
 fish_red = [
     ["flagtail", "https://1.bp.blogspot.com/-56Y9cIeGpE0/X5OcS9dZIhI/AAAAAAABb8A/nN9aD-ZvOp86FZuQa-Zhp7QlpX3cFGQOwCNcBGAsYHQ/s829/fish_ginyugoi.png"],
     ["amberjack", "https://1.bp.blogspot.com/-SmXDvlhYF2w/XzXkyv-YZuI/AAAAAAABal4/V34t7_HzQW0Vn9EeVIXG4MtSuo47dm3LgCNcBGAsYHQ/s1600/fish_buri.png"],
@@ -38,23 +34,6 @@ bottle_messages = [
     "Technoblade never dies",
     "Hello, world!"
 ]
-
-for(var x=0;x<fish_red.length;x++) {
-    tempImg[x] = new Image()
-    tempImg[x].src = fish_red[x][1]
-}
-for(var x=0;x<fish_orange.length;x++) {
-    tempImg[x] = new Image()
-    tempImg[x].src = fish_orange[x][1]
-}
-for(var x=0;x<fish_yellow.length;x++) {
-    tempImg[x] = new Image()
-    tempImg[x].src = fish_yellow[x][1]
-}
-for(var x=0;x<fish_green.length;x++) {
-    tempImg[x] = new Image()
-    tempImg[x].src = fish_green[x][1]
-}
 
 const fish_dom = document.getElementById("fish_dom");
 const fish_text = document.getElementById("fish_text");
