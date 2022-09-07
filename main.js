@@ -58,15 +58,25 @@ function getFish(fish_color)
         fish_dom.setAttribute("alt", "Illustration of a " + fish_color[fish][0]);
     }
 }
-
+var intro = true;
 function catchFish()
 {
     var marker_x = 0;
 
-    reveal.classList.toggle("anim-play");
-    setTimeout(function(){
-        reveal.remove();
-    }, 750);
+    if(intro === true)
+    {
+        reveal.classList.toggle("anim-play");
+        setTimeout(function(){
+            reveal.classList.toggle("anim-pause");
+            
+            reveal.classList.remove("reveal");
+            reveal.classList.remove("anim-play");
+            reveal.classList.remove("anim-pause");
+            intro = false;
+            reveal.style.transform = "translateY(100%)";
+            console.log("a");
+        }, 750);
+    }
 
     marker.classList.toggle("anim-pause");
     
@@ -74,19 +84,60 @@ function catchFish()
         var marker_x = lerp(parseFloat(getComputedStyle(marker).getPropertyValue('left').slice(0,-2)), parseFloat(getComputedStyle(document.getElementById("red")).getPropertyValue('width').slice(0,-2))*(0.25/100), parseFloat(getComputedStyle(document.getElementById("red")).getPropertyValue('width').slice(0,-2))*(99.75/100), 0, 100);
         if(marker_x > (50-(green_bar/2)) && marker_x < (50+(green_bar/2)) && marker.classList.contains("anim-pause"))
         {
-            getFish(fish_green);
+            if(intro === false){
+                reveal.classList.add("caught");
+                setTimeout(function(){
+                    reveal.classList.remove("caught");
+                },1000)
+                setTimeout(function(){
+                    getFish(fish_green);
+                },500)
+            }else{
+                getFish(fish_green);
+            }
         }
         else if(marker_x > (50-(yellow_bar/2)) && marker_x < (50+(yellow_bar/2)) && marker.classList.contains("anim-pause"))
         {
-            getFish(fish_yellow);
+            if(intro === false){
+                reveal.classList.add("caught");
+                setTimeout(function(){
+                    reveal.classList.remove("caught");
+                },1000)
+                setTimeout(function(){
+                    getFish(fish_yellow);
+                },500)
+            } else {
+                getFish(fish_yellow);
+            }
         }
         else if(marker_x > (50-(orange_bar/2)) && marker_x < (50+(orange_bar/2)) && marker.classList.contains("anim-pause"))
         {
-            getFish(fish_orange);
+            if(intro === false){
+                reveal.classList.add("caught");
+                setTimeout(function(){
+                    reveal.classList.remove("caught");
+                },1000)
+                setTimeout(function(){
+                    getFish(fish_orange);
+                },500)
+            } else {
+                getFish(fish_orange);
+            }
+            
         }
         else if(marker.classList.contains("anim-pause"))
         {
-            getFish(fish_red);
+            if(intro === false){
+                reveal.classList.add("caught");
+                setTimeout(function(){
+                    reveal.classList.remove("caught");
+                },1000)
+                setTimeout(function(){
+                    getFish(fish_red);
+                },500)
+            }else{
+                getFish(fish_red);
+            }
         }
     }, 50);
 }

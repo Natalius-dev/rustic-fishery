@@ -143,12 +143,24 @@ p {
     20% {transform: translateY(5%);}
     100% {transform: translateY(100%);}
 }
+@keyframes caught {
+    0% {transform: translateY(100%);}
+    45% {transform: translateY(0%);}
+    55% {transform: translateY(0%);}
+    100% {transform: translateY(100%);}
+}
 .reveal {
     animation-name: reveal;
     animation-duration: 750ms;
     animation-play-state: paused;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
+}
+.caught {
+    animation: normal;
+    animation-name: caught;
+    animation-duration: 1000ms;
+    transform: translateY(100%);
 }
 .anim-play {
     animation-play-state: running;
